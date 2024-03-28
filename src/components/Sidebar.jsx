@@ -1,10 +1,11 @@
-import React from "react";
-import Dashboard from "../pages/Dashboard";
-import Student from "../pages/Student";
-import Result from "../pages/Result";
-import UpdateStudent from "../pages/UpdateStudent";
-import DeleteStudent from "../pages/DeleteStudent";
-import Parent from "../pages/Parent";
+import React from 'react';
+import Dashboard from '../pages/Dashboard';
+import Student from '../pages/Student';
+import Result from '../pages/Result';
+import UpdateStudent from '../pages/UpdateStudent';
+import DeleteStudent from '../pages/DeleteStudent';
+import Parent from '../pages/Parent';
+import ViewResults from '../pages/ViewResults';
 
 function Sidebar({ changePage }) {
   return (
@@ -33,7 +34,14 @@ function Sidebar({ changePage }) {
             changePage(<Result />);
           }}
         >
-          Result
+          Add Result
+        </li>
+        <li
+          onClick={() => {
+            changePage(<ViewResults />);
+          }}
+        >
+          View Result
         </li>
         <li
           onClick={() => {

@@ -37,28 +37,12 @@ function Student() {
         </div>
         <div className="student-table">
           {studentData.map((student) => (
-            <Mytable
-              studentid={student.studentId}
-              studentfirstname={
-                student.firstName +
-                ' ' +
-                student.middleName +
-                ' ' +
-                student.lastName
-              }
-              studentemail={student.email}
-              studentphone={student.phone}
-              studentdob={student.dob}
-            />
-
-            // <tr key={student.studentId}>
-            //   <td>{`${student.firstName} ${student.middleName} ${student.lastName}`}</td>
-            //   <td>{student.email}</td>
-            //   <td>{student.phone}</td>
-            //   <td>{student.dob}</td>
-
-            //   {/* Include other student details as needed */}
-            // </tr>
+            <div key={student.studentId}>
+              <p className="name">{`${student.firstName} ${student.middleName} ${student.lastName}`}</p>
+              <p className="email">{student.email}</p>
+              <p className="phone">{student.phone}</p>
+              <p className="dob">{student.dob}</p>
+            </div>
           ))}
         </div>
       </div>

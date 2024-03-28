@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 function AddStudent() {
   const [formData, setformData] = useState({
-    studentId: '',
     firstName: '',
     middleName: '',
     lastName: '',
@@ -22,8 +21,9 @@ function AddStudent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('ouch');
     try {
-      const res = await fetch('localhost:8080/api/v1/student', {
+      const res = await fetch('http://localhost:8080/api/v1/student', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -37,6 +37,9 @@ function AddStudent() {
       console.error('form not sent', error);
     }
   };
+
+  console.log(formData);
+
   return (
     <div className="add-student">
       <div className="student-save">
@@ -44,24 +47,82 @@ function AddStudent() {
       </div>
       <div className="student-inputs">
         <div className="student-column">
-          <input type="file" capture="user" />
-          <input type="text" name="studentId" />
-          <input type="text" name="firstName" />
-          <input type="text" name="middleName" />
-          <input type="text" name="lastName" />
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleInput}
+            placeholder="First Name"
+          />
+          <input
+            type="text"
+            name="middleName"
+            value={formData.middleName}
+            onChange={handleInput}
+            placeholder="Middle Name"
+          />
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleInput}
+            placeholder="Last Name"
+          />
         </div>
         <div className="student-column">
-          <input type="text" name="phone" />
-          <input type="text" name="email" />
-          <input type="text" name="dob" />
-          <input type="text" name="residence" />
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInput}
+            placeholder="Phone"
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInput}
+            placeholder="Email"
+          />
+          <input type="date" name="dob" onChange={handleInput} />
+          <input
+            type="text"
+            name="residence"
+            value={formData.residence}
+            onChange={handleInput}
+            placeholder="Residence"
+          />
         </div>
         <div className="student-column">
-          <input type="text" name="location" />
-          <input type="text" name="name" />
-          <input type="text" name="relationship" />
-          <input type="text" name="contact" />
-          <button>Save </button>
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleInput}
+            placeholder="location"
+          />
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInput}
+            placeholder="Guardian Name"
+          />
+          <input
+            type="text"
+            name="relationship"
+            value={formData.relationship}
+            onChange={handleInput}
+            placeholder="Relationship"
+          />
+          <input
+            type="text"
+            name="contact"
+            value={formData.contact}
+            onChange={handleInput}
+            placeholder="Contact"
+          />
+          <button onClick={handleSubmit}>Save </button>
         </div>
       </div>
     </div>
