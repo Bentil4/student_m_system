@@ -19,7 +19,10 @@ function Dashboard() {
     <div className="dashboard">
       <div className="dash-total">
         <div className="dash-right"></div>
-        <div className="dash-left">{studentData.length}</div>
+        <div className="dash-left">
+          <p className="nstudent">No. of Students</p>
+          <p className="studentl">{studentData.length}</p>
+        </div>
       </div>
       <div className="dash-total">
         <div className="dash-right"></div>

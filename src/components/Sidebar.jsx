@@ -11,7 +11,7 @@ function Sidebar({ changePage }) {
   return (
     <div className="sidebar">
       <div>
-        <h1>StudentMSYSTEM</h1>
+        <h1>NBYC JHS</h1>
       </div>
       <ul>
         <li

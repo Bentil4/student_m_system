@@ -1,54 +1,69 @@
-import React, { useState, useEffect } from 'react';
+// import React from 'react';
 
-function ViewResults() {
-  const [studentData, setStudentData] = useState([]);
+import React, { useEffect, useState } from 'react';
+
+function StudentDetails() {
+  const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    const fetchStudentData = async () => {
+    const getStudents = async () => {
       try {
         const res = await fetch(
           'http://localhost:8080/api/v1/student/allStudent'
         );
-        if (res.ok) {
-          const data = await res.json();
-          setStudentData(data);
-        } else {
-          console.error('Failed to fetch student data');
-        }
+        const studentsData = await res.json();
+        setStudents(studentsData);
       } catch (error) {
         console.error('Error fetching student data:', error);
       }
     };
 
-    fetchStudentData();
+    getStudents();
   }, []);
 
   return (
-    <div className="vRe">
-      <h1>Student Data</h1>
+    <div className="table-container">
       <table>
         <thead>
           <tr>
             <th>Name</th>
+
             <th>Subjects</th>
-            <th>Total Score</th>
           </tr>
         </thead>
         <tbody>
-          {studentData.map((student) => (
-            <tr className="one" key={student.studentId}>
-              <td>{`${student.firstName} ${student.lastName}`}</td>
+          {students.map((student) => (
+            <tr key={student.studentId}>
+              <td>{`${student.firstName} ${student.middleName} ${student.lastName}`}</td>
+
               <td>
-                <ul className="opo">
-                  {student.subjects.map((subject, index) => (
-                    <li key={index}>
-                      <p>{subject.subjectName}</p>
-                      <p className="part">{subject.totalScore}</p>
-                    </li>
-                  ))}
-                </ul>
+                {student.subjects ? (
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Subject ID</th>
+                        <th>Subject Name</th>
+                        <th>Class Score</th>
+                        <th>Exam Score</th>
+                        <th>Total Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {student.subjects.map((subject) => (
+                        <tr key={subject.subjectID}>
+                          <td>{subject.subjectID}</td>
+                          <td>{subject.subjectName}</td>
+                          <td>{subject.classScore}</td>
+                          <td>{subject.examScore}</td>
+                          <td>{subject.totalScore}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : (
+                  'No subjects available'
+                )}
               </td>
-              <td>{student.totalScore}</td>
             </tr>
           ))}
         </tbody>
@@ -57,4 +72,4 @@ function ViewResults() {
   );
 }
 
-export default ViewResults;
+export default StudentDetails;

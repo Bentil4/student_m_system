@@ -8,11 +8,8 @@ function AddStudent() {
     dob: '',
     email: '',
     phone: '',
-    residence: '',
-    location: '',
-    name: '',
-    relationship: '',
-    contact: '',
+    addresses: [{ residence: '', location: '' }],
+    guardian: [{ name: '', relationship: '', contact: '' }],
   });
 
   const handleInput = (e) => {
