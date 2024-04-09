@@ -390,3 +390,151 @@ tbody {
 .input-black {
   color: black;
 }
+
+/* Login Page */
+
+.loginPage {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.loginleft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./asset/students.jpg');
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+}
+
+.loginleft h3 {
+  text-align: center;
+}
+
+.loginleft img {
+  text-align: center;
+}
+
+.loginright {
+  width: 50%;
+  background-color: #026087;
+}
+.loginright form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginright form input {
+  border: none;
+  outline: none;
+  border-radius: 1em;
+}
+
+.loginright form input[type='text'] {
+  padding: 0.8rem;
+  width: 50%;
+  margin: 0.7rem;
+}
+.loginright form input[type='submit'] {
+  padding: 0.8rem;
+  width: 40%;
+  margin: 0.7rem;
+  background-color: #c10b76;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Register Page */
+
+.Registerpage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerleft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100vh;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./asset/students.jpg');
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+}
+
+.registerleft,
+.loginleft img {
+  height: 30%;
+  width: 35%;
+}
+
+.registerleft h3 {
+  text-align: center;
+  font-size: larger;
+}
+
+.registerright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 65%;
+  /* padding: 1em; */
+  background-color: #afafaf;
+}
+
+.registerright form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  /* width: 50%; */
+}
+
+.registerright form .side {
+  display: flex;
+  /* flex-direction: column; */
+  margin: 0.5em;
+  width: 80%;
+}
+
+.registerright form input {
+  padding: 1rem;
+  margin: 0.5rem;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #8d8c8c;
+  color: white;
+}
+
+.registerright form input[type='submit'] {
+  padding: 0.8rem;
+  width: 10%;
+  margin: 0.7rem;
+  background-color: #c10b76;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

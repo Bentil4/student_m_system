@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import AddStudent from './AddStudent';
+import { useUser } from '../UserContext'; // Import useUser hook
 
 function Student() {
   const targetref = useRef();
@@ -7,6 +8,9 @@ function Student() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredStudentData, setFilteredStudentData] = useState([]);
   const [studentData, setStudentData] = useState([]);
+  const { user } = useUser(); // Access user data using useUser hook
+
+  console.log(user);
 
   const handleAddButton = () => {
     targetref.current.style.display = 'none';
@@ -49,9 +53,11 @@ function Student() {
             />
             <button> Search</button>
           </div>
-          <div className="student-add" onClick={handleAddButton}>
-            <span>+</span>
-          </div>
+          {/* {user.role !== 'teacher' && (
+            <div className="student-add" onClick={handleAddButton}>
+              <span>+</span>
+            </div>
+          )} */}
         </div>
         <div className="student-table">
           {filteredStudentData.map((student) => (

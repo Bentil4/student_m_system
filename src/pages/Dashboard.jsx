@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useUser } from '../UserContext'; // Import useUser hook
 
 function Dashboard() {
   const [studentData, SetStudentData] = useState('');
+  const { user } = useUser();
+  console.log(user);
 
   const fetchdata = async () => {
     const res = await fetch('http://localhost:8080/api/v1/student/allStudent');
     const data = await res.json();
     SetStudentData(data);
   };
-
-  console.log(studentData.length);
 
   useEffect(() => {
     fetchdata();

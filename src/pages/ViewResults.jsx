@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-function StudentDetails() {
+function ViewResults() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
@@ -72,4 +72,4 @@ function StudentDetails() {
   );
 }
 
-export default StudentDetails;
+export default ViewResults;
